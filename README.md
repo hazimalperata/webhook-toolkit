@@ -88,8 +88,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({success: false, message: 'Invalid signature'}, {status: 401})
   }
 
-  const jsonBody = await req.json()
-  doSomeMagicWithPayload(jsonBody)
+  doSomeMagicWithPayload(body) // If you want a json body you can convert with JSON.stringify()
   return NextResponse.json({success: true}, {status: 200 })
 }
 ```
